@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { Task } from '.././types';
+import toast from 'react-hot-toast'
 
 
 export function useTasks() {
@@ -15,16 +16,19 @@ export function useTasks() {
   const addTask = (task: Omit<Task, 'id'>) => {
     const newTask = { ...task, id: Date.now() }
     setTasks((prev) => [newTask, ...prev])
+    toast.success('Task added')
   }
 
   const updateTask = (id: number, updates: Partial<Task>) => {
     setTasks((prev) =>
       prev.map((task) => (task.id === id ? { ...task, ...updates } : task))
     )
+    toast.success('Task updated')
   }
 
   const deleteTask = (id: number) => {
     setTasks((prev) => prev.filter((task) => task.id !== id))
+    toast('Task deleted', { icon: '🗑' })
   }
 
   const getFilteredTasks = (filter: 'all' | 'active' | 'completed') => {
