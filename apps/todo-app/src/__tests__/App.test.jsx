@@ -3,5 +3,5 @@ import App from '.././App'
 
 test('renders welcome text', () => {
   render(<App />)
-  expect(screen.getByText(/vite \+ react/i)).toBeInTheDocument()
+  expect(screen.getByText("ToDoPlus")).toBeInTheDocument()
 })
