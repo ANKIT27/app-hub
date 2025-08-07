@@ -88,7 +88,9 @@ useEffect(() => {
   return (
     <div className="app-container">
       <header className="header">
-        <div className="logo">✷ log</div>
+        <div className="logo" >
+          <img src="/icon.png" alt="to do image" title='to doooo' style={{width: '30%', height: 'auto'}}/>
+          </div>
         <h1>{editId ? 'Edit Task' : 'Add New Task'}</h1>
 
         <div className="input-row" style={{ flexDirection: 'column', gap: '1rem' }}>
@@ -170,8 +172,8 @@ useEffect(() => {
       </main>
 
       <footer className="footer">
-        <div className="logo">✷ log</div>
-        <div>© 2025 ankit kumar All rights reserved.</div>
+        <div className="logo"><img src="/icon.png" alt="to do image" title='to doooo' style={{width: '3%', height: 'auto'}}/></div>
+        <div>© 2025 Ankit Kumar All rights reserved.</div>
         <div className="footer-links">
           <a href="#">Resources</a>
           <a href="#">Legal</a>
