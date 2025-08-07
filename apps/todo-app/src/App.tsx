@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
+
 import './App.css'
 import { useTasks } from './hooks/useTasks'
 import type { Task } from './types';
 
 import { TaskCard } from './components/TaskCard'
 import { TaskForm } from './components/TaskForm'
-
+import { useStore } from './store/store'
 const App: React.FC = () => {
   const {  addTask, updateTask, deleteTask, getFilteredTasks } = useTasks()
-  const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all')
-  const [editingTask, setEditingTask] = useState<Task | null>(null)
+  const { filter, setFilter, editingTask, setEditingTask } = useStore()
 
   const handleSave = (data: Omit<Task, 'id'>) => {
     if (editingTask) {
