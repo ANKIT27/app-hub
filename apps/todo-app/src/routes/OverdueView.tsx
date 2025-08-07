@@ -1,21 +1,38 @@
-import TaskListView from '../components/TaskListView'
 import { useTasks } from '../hooks/useTasks'
+import { TaskCard } from '../components/TaskCard'
 
-const OverdueView = () => {
-  const { tasks, updateTask, deleteTask } = useTasks()
+export default function OverdueView() {
+  const {
+    tasks,
+    updateTask,
+    deleteTask,
+  } = useTasks()
+
   const today = new Date().toISOString().split('T')[0]
 
-  const overdueTasks = tasks.filter(task => task.due && task.due < today && !task.completed)
+  const overdueTasks = tasks.filter(
+    (task) =>
+      task.due !== 'No deadline' &&
+      task.due < today &&
+      !task.completed
+  )
 
   return (
-    <TaskListView
-      title="Overdue Tasks"
-      tasks={overdueTasks}
-      onToggle={(id) => updateTask(id, { completed: true })}
-      onDelete={deleteTask}
-      onEdit={updateTask}
-    />
+    <section>
+      <h2>Overdue Tasks</h2>
+      <main className="task-grid">
+        {overdueTasks.map((task) => (
+          <TaskCard
+            key={task.id}
+            task={task}
+            onToggle={(id) =>
+              updateTask(id, { completed: !task.completed })
+            }
+            onDelete={deleteTask}
+            onEdit={(id, updates) => updateTask(id, updates)}
+          />
+        ))}
+      </main>
+    </section>
   )
 }
-
-export default OverdueView

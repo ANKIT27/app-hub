@@ -8,7 +8,8 @@ type Props = {
   editingTask?: Task | null
 }
 
-const CATEGORIES = ['Work', 'Personal', 'Shopping', 'Health']
+
+const CATEGORIES = ['Health', 'Personal', 'Shopping','Work' ,'Other']
 
 export const TaskForm: React.FC<Props> = ({ onSave, onCancel, editingTask }) => {
   const [title, setTitle] = useState('')
