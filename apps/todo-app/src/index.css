@@ -11,3 +11,18 @@ body {
   background-color: #0f0f10;
   color: white;
 }
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.nav-links a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #2f2f2f;
+  color: white;
+}
+.nav-links a:hover {
+  background: #444;
+}

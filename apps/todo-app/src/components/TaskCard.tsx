@@ -6,7 +6,8 @@ type Props = {
   task: Task
   onToggle: (id: number) => void
   onDelete: (id: number) => void
-  onEdit: (task: Task) => void
+  onEdit: (id: number, updates: Partial<Task>) => void
+
 }
 
 export const TaskCard: React.FC<Props> = ({ task, onToggle, onDelete, onEdit }) => {
@@ -25,7 +26,11 @@ export const TaskCard: React.FC<Props> = ({ task, onToggle, onDelete, onEdit }) 
         <span>Due: {task.due === 'No deadline' ? '—' : task.due}</span>
       </div>
       <div className="task-actions">
-        <button onClick={() => onEdit(task)}>✎</button>
+        <button onClick={() => { const newTitle = prompt('Edit task title:', task.title)
+        if (newTitle && newTitle !== task.title) {
+          onEdit(task.id, { title: newTitle })}
+       }}>✎</button>
+
         <button onClick={() => onDelete(task.id)}>🗑</button>
       </div>
     </div>
