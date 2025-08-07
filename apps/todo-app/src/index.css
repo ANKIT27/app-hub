@@ -82,6 +82,8 @@ body {
   box-shadow: inset 2px 2px 6px #1c1c1c, inset -2px -2px 6px #3c3c3c;
 }
 
+
+
 /* Input styling */
 input, select {
   background: #2c2c2c;
@@ -129,3 +131,100 @@ h1, h2, h3 {
   width: 100%;
 }
 
+/* Root layout */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #121212;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  max-width: 960px; /* or 1024px */
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+
+/* Task card */
+.task-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Task header */
+.task-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.task-header h3 {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 1.1rem;
+  word-break: break-word;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .app-container {
+    padding: 1rem 0.5rem;
+  }
+
+ .task-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  
+}
+
+  .task-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .task-actions {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-header h3 {
+    font-size: 1rem;
+  }
+
+  .edit-title-input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  
+
+}
